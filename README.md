@@ -33,3 +33,5 @@ make
 python plot.py
 ```
 The phase portrait will be output to *result.png*
+
+The Poincare map will be output to *poincare_map.png*
