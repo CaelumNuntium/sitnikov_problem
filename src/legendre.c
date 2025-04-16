@@ -1,5 +1,3 @@
-#pragma warning(disable: 6386 6385 6387 6001 6031 6011)
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -89,14 +87,11 @@ double bernoulli(double* p, int n, double eps, int* ier)
 	double* y;
 	int i, j;
 	double res, eps0;
-	//printf("I am in bernoulli\n");
 	y = (double*)malloc((n + 1) * sizeof(double));
-	//printf("y pointer: %p\n", y);
-	//printf("p pointer: %p\n", p);
-	//printf("ier pointer: %p\n", ier);
 	if (n == 1)
 	{
 		ier[0] = 0;
+		free(y);
 		return -p[0] / p[1];
 	}
 	for (i = 0; i < n; i++)
