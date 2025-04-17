@@ -133,7 +133,7 @@ int main()
             lobatto(s, c);
         }
         res = (double*)malloc(N * (nm + 1) * sizeof(double));
-        poincare_map = (double*)malloc(N * (n_z + 1) * (n_z_dot + 1) * nm * sizeof(double));
+        poincare_map = (double*)malloc(N * (n_z + 1) * (n_z_dot + 1) * (nm - 1) * sizeof(double));
         printf("Progress: %2d %%", 0);
         n_all = (n_z + 1) * (n_z_dot + 1);
         for(j = 0; j <= n_z; j++)
@@ -169,7 +169,7 @@ int main()
             free(c);
         }
         free(res);
-        write_poincare_map("poincare_map.dat", N, n_z, n_z_dot, n_periods, poincare_map);
+        write_poincare_map("poincare_map.dat", N, n_z, n_z_dot, nm - 1, poincare_map);
         free(poincare_map);
     }
     else
