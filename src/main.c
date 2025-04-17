@@ -139,7 +139,7 @@ int main()
         for(j = 0; j <= n_z; j++)
         {
             x0[0] = z_min + z_step * j;
-            poincare_map_loc = poincare_map + N * nm * (n_z_dot + 1) * j;
+            poincare_map_loc = poincare_map + N * (nm - 1) * (n_z_dot + 1) * j;
             for(k = 0; k <= n_z_dot; k++)
             {
                 x0[1] = z_dot_min + z_dot_step * k;
@@ -153,7 +153,7 @@ int main()
                         collo(N, nt, m, h, sitnikov_eq, x0, s, c, res);
                         break;
                 }
-                poincare_map_loc_loc = poincare_map_loc + nm * N * k;
+                poincare_map_loc_loc = poincare_map_loc + (nm - 1) * N * k;
                 for(l = 1; l < nm; l++)
                 {
                     for(ll = 0; ll < N; ll++)
